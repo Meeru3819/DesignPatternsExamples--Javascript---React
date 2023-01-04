@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Statistic } from "semantic-ui-react";
+import { Card, Segment } from "semantic-ui-react";
 import IncrementButton from "./IncrementButton";
 import DecrementButton from "./DecrementButton";
 import singletonCounter from "./Counter";
@@ -13,11 +13,21 @@ const SingletonPattern = () => {
 
   return (
     <>
-      <IncrementButton upDataCount={updateCountValue} />
-      <DecrementButton upDataCount={updateCountValue} />
-      <Statistic.Group>
-        <Statistic label="Count" value={count} />
-      </Statistic.Group>
+      <Segment>
+        <Card>
+          <Card.Content>
+            <Card.Header>Singleton</Card.Header>
+            <Card.Meta>Design Pattern</Card.Meta>
+            <Card.Description>
+              Count is <strong>{count}</strong>
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+            <IncrementButton upDataCount={updateCountValue} />
+            <DecrementButton upDataCount={updateCountValue} />
+          </Card.Content>
+        </Card>
+      </Segment>
     </>
   );
 };
